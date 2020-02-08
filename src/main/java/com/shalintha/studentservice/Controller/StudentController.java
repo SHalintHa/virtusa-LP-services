@@ -1,32 +1,33 @@
 package com.shalintha.studentservice.Controller;
 
-import com.shalintha.studentservice.model.Student;
-import org.springframework.http.MediaType;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.constraints.Null;
-import java.util.ArrayList;
-import java.util.List;
+import com.shalintha.studentservice.model.Student;
+import com.shalintha.studentservice.service.StudentService;
+
 
 @RestController
 public class StudentController {
+	
+	@Autowired
+	StudentService studentService;
+	
+	@RequestMapping("/students")
+	public List<Student> getAllSrudents(){
+		
+		return studentService.getAllStudents();
+	}
+	
+	@RequestMapping("/student/{id}")
+	public Student getAStudent(@PathVariable int id) {
+		return studentService.getAStudent(id);
+	}
+	
 
-    @RequestMapping("/students")
-    public List<Student> getAllStudents(){
-        return Student.getAllStudents();
-    }
-
-    @RequestMapping(value = "/student/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Student getAStudent(@PathVariable("id") int id){
-
-    	Student student = null;
-        for(Student s : Student.getAllStudents()){
-            if(s.getSid() == id)
-                 student = s;
-        }
-        return student;
-    }
 }
