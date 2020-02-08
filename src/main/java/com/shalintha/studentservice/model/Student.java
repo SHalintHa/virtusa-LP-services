@@ -3,8 +3,16 @@ package com.shalintha.studentservice.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+
+@Entity
 public class Student {
 
+	@Id
     int sid;
     String studentName;
     String studentAddress;
