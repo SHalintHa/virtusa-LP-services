@@ -6,8 +6,9 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate:
-      dialect: com.pivotal.gemfirexd.hibernate.GemFireXDDialect
+#      dialect: org.hibernate.dialect.MySQL5Dialect
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       ddl-auto: create
-
+  application:
+    name: student-service

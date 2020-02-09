@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.shalintha.studentservice.model.Student;
-import com.shalintha.studentservice.service.StudentService;
+import com.shalintha.studentservice.service.StudentServiceImpl;
 
 
 @RestController
 public class StudentController {
 	
 	@Autowired
-	StudentService studentService;
+	StudentServiceImpl studentServiceImpl;
 	
 	@RequestMapping("/students")
 	public List<Student> getAllSrudents(){
 		
-		return studentService.getAllStudents();
+		return studentServiceImpl.getAllStudents();
 	}
 	
 	@RequestMapping("/student/{id}")
 	public Student getAStudent(@PathVariable int id) {
-		return studentService.getAStudent(id);
+		return studentServiceImpl.getAStudent(id);
 	}
 	
 

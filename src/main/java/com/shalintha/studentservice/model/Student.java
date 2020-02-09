@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 public class Student {
 
 	@Id
-    int sid;
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer sid;
     String studentName;
     String studentAddress;
 
