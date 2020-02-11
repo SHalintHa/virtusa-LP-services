@@ -24,11 +24,20 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     List<Telephone> telephones;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-            @JoinTable(
-                    joinColumns={@JoinColumn(name = "sid", referencedColumnName = "id")},
-                    inverseJoinColumns = {@JoinColumn(name = "pid", referencedColumnName = "id")}
+    /*
+    *  @JoinTable(
+                    joinColumns={@JoinColumn(name = "sid", referencedColumnName = "sid")},
+                    inverseJoinColumns = {@JoinColumn(name = "pid", referencedColumnName = "pid")}
             )
+    *
+    *
+    * */
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            joinColumns={@JoinColumn(name = "student_id", referencedColumnName = "sid")},
+            inverseJoinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "pid")}
+    )
     List<Project> projects;
 
     public Student() {    }

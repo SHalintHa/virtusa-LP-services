@@ -9,7 +9,7 @@ public class Project {
     @Id
             @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer pid;
-    String Name;
+    String name;
 
 
     @ManyToMany(mappedBy = "projects")
@@ -25,11 +25,11 @@ public class Project {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public List<Student> getStudents() {

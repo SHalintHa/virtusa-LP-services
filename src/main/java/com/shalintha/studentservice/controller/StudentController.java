@@ -2,13 +2,14 @@ package com.shalintha.studentservice.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 
+import com.shalintha.studentservice.model.Telephone;
 import com.shalintha.studentservice.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.shalintha.studentservice.model.Student;
-import com.shalintha.studentservice.service.StudentServiceImpl;
 
 
 @RestController
@@ -19,18 +20,22 @@ public class StudentController {
 	StudentService studentService;
 	
 	@RequestMapping("/students")
-	public List<Student> getAllStudents(){
+	public List<Student> fetchAllStudents(){
 		
-		return studentService.getAllStudents();
+		return studentService.fetchAllStudents();
 	}
 	
-//	@RequestMapping("/student/{id}")
-//	public Student getAStudent(@PathVariable int id) {
-//		return studentService.getAStudent(id);
-//	}
+	@RequestMapping("/student/{id}")
+	public Optional<Student> fetchStudent(@PathVariable int id) {
+		return studentService.fetchStudent(id);
+	}
 
 	@RequestMapping(value = "/student", method = RequestMethod.POST)
 	public Student saveStudent(@RequestBody Student student){
+
+		for (Telephone telephone: student.getTelephones()) {
+			telephone.setStudent(student);
+		}
 		return studentService.saveStudent(student);
 	}
 	

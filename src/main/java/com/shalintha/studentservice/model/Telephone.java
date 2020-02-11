@@ -1,5 +1,7 @@
 package com.shalintha.studentservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +14,7 @@ public class Telephone {
 
     @ManyToOne
             @JoinColumn
+            @JsonIgnore
     Student student;
 
     public int getTid() {
