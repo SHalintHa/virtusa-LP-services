@@ -2,6 +2,7 @@ package com.shalintha.studentservice.service;
 
 import java.util.List;
 
+import com.shalintha.studentservice.model.Address;
 import com.shalintha.studentservice.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,5 +34,4 @@ public class StudentServiceImpl implements StudentService{
 
         return studentRepository.save(student);
     }
-
 }

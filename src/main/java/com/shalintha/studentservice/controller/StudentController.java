@@ -29,7 +29,7 @@ public class StudentController {
 //		return studentService.getAStudent(id);
 //	}
 
-	@RequestMapping(value = "/student")
+	@RequestMapping(value = "/student", method = RequestMethod.POST)
 	public Student saveStudent(@RequestBody Student student){
 		return studentService.saveStudent(student);
 	}
