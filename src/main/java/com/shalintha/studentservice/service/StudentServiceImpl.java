@@ -10,27 +10,28 @@ import org.springframework.stereotype.Service;
 import com.shalintha.studentservice.model.Student;
 
 @Service
-public class StudentServiceImpl{
+public class StudentServiceImpl implements StudentService{
 
+    @Autowired
     StudentRepository studentRepository;
 
+
+    @Override
     public Student save(Student s){
         Student student = studentRepository.save(s);
         return student;
     }
 
-    public static List<Student> getAllStudents(){
-        return Student.getAllStudents();
+    @Override
+    public List<Student> getAllStudents(){
+        return studentRepository.findAll();
     }
 
-    public static Student getAStudent(int id){
 
-        Student student = null;
-        for(Student s : Student.getAllStudents()){
-            if(s.getSid() == id)
-                student = s;
-        }
-        return student;
+    @Override
+    public Student saveStudent(Student student) {
+
+        return studentRepository.save(student);
     }
 
 }
