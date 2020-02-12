@@ -1,5 +1,7 @@
 package com.shalintha.studentservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class Project {
 
 
     @ManyToMany(mappedBy = "projects")
+            @JsonIgnore
     List<Student> students;
 
 
