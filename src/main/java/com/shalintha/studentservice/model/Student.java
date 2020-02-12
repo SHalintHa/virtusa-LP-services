@@ -8,6 +8,8 @@ import javax.persistence.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import com.shalintha.studentservice.common_model.Allocation;
+
 
 @Entity
 public class Student {
@@ -39,6 +41,8 @@ public class Student {
             inverseJoinColumns = {@JoinColumn(name = "project_id", referencedColumnName = "pid")}
     )
     List<Project> projects;
+    
+    Allocation[] allocations;
 
     public Student() {    }
 
@@ -101,6 +105,17 @@ public class Student {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-    
+
+
+	public Allocation[] getAllocations() {
+		return allocations;
+	}
+
+
+	public void setAllocations(Allocation[] allocations) {
+		this.allocations = allocations;
+	}
+	
+	 
     
 }
