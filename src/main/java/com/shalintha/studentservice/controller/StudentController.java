@@ -19,7 +19,7 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 	
-	@RequestMapping("/students")
+	@RequestMapping("/student/all")
 	public List<Student> fetchAllStudents(){
 		
 		return studentService.fetchAllStudents();
@@ -30,7 +30,7 @@ public class StudentController {
 		return studentService.fetchStudent(id);
 	}
 
-	@RequestMapping(value = "/student", method = RequestMethod.POST)
+	@RequestMapping(value = "/student/save", method = RequestMethod.POST)
 	public Student saveStudent(@RequestBody Student student){
 
 		for (Telephone telephone: student.getTelephones()) {

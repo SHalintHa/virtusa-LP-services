@@ -91,4 +91,16 @@ public class Student {
     public void setTelephones(List<Telephone> telephones) {
         this.telephones = telephones;
     }
+
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+    
+    
 }
