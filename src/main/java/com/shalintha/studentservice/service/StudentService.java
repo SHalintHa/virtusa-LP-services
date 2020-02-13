@@ -13,5 +13,5 @@ public interface StudentService {
 
     Student saveStudent(Student student);
 
-    Optional<Student> fetchStudent(int id);
+    Student fetchStudent(int id);
 }

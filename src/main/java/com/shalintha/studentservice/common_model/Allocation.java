@@ -4,13 +4,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 public class Allocation {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
-	
 	Integer studentId;
 	String start;
 	String end;

@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.shalintha.studentservice.common_model.Allocation;
 import com.shalintha.studentservice.model.Student;
 
 @Service
@@ -54,15 +56,18 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Optional<Student> fetchStudent(int id) {
+    public Student fetchStudent(int id) {
     	
-//    	Optional<Student> optional = studentRepository.findById(id);
-//    	if(optional.isPresent()) {
-//    		Student student = optional.get();
-//    		ResponseEntity<Allocation[]> responseEntity = restTemplate.exchange("http://localhost:8181/service/allocation/fetch/student/{id}", method, requestEntity, responseType)
-//    	}
-    	
-        return studentRepository.findById(id);
+    	Optional<Student> optional = studentRepository.findById(id);
+    	if(optional.isPresent()) {
+    		Student student = optional.get();
+    		ResponseEntity<Allocation[]> responseEntity = restTemplate.exchange("http://localhost:8181/service/allocation/fetch/student/"+id,
+    	HttpMethod.GET, httpEntity , Allocation[].class);
+    		return student;
+    	}
+    	else {
+    		return null;
+    	}
     }
     
     

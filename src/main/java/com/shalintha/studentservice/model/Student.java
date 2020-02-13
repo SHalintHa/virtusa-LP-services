@@ -26,15 +26,7 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     List<Telephone> telephones;
 
-    /*
-    *  @JoinTable(
-                    joinColumns={@JoinColumn(name = "sid", referencedColumnName = "sid")},
-                    inverseJoinColumns = {@JoinColumn(name = "pid", referencedColumnName = "pid")}
-            )
-    *
-    *
-    * */
-
+    
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             joinColumns={@JoinColumn(name = "student_id", referencedColumnName = "sid")},
