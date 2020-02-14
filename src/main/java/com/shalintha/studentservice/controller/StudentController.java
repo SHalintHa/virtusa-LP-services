@@ -26,7 +26,7 @@ public class StudentController {
 	}
 	
 	@RequestMapping("/student/{id}")
-	public Optional<Student> fetchStudent(@PathVariable int id) {
+	public Student fetchStudent(@PathVariable int id) {
 		return studentService.fetchStudent(id);
 	}
 
