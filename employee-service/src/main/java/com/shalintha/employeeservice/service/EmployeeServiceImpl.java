@@ -50,7 +50,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if(employee.isPresent()) {
             Employee emp = employee.get();
             ResponseEntity<Allocation[]> responseEntity = restTemplate.exchange(
-                    "http://localhost:8181/employee/" + id,
+                    "http://allocation-service/employee/" + id,
                     HttpMethod.GET, httpEntity, Allocation[].class
             );
             return emp;

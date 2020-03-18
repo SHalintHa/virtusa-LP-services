@@ -20,8 +20,10 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employees", method = RequestMethod.GET)
     public List<Employee> getAllEmployees() {
+        System.out.println("*******************Employee service 2****************************************");
         return employeeService.findAllEmployee();
     }
+
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public Employee saveEmployee(@RequestBody Employee employee) {
